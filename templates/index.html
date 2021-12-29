@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Price </title>
+     
+</head>
+
+<body>
+     
+
+    <div style="color:white">
+        <form action="{{ url_for('predict')}}" method="post">
+            <h2 style="color: rgb(243, 7, 7);"> Car Price Prediction </h2>
+            <hr>
+             
+            <h3>Year   <input id="yr" name="Year" type="number " value= "{{(request.form['Year'])}}"> </h3>
+              
+            <h3>What is the Showroom Price? (In $ ) </h3> <input id="shp" name="Present_Price" required="required" value="{{(request.form['Present_Price'])}}"> 
+            <h3>How Many Kilometers Drived ? </h3> <input id="kd" name="Kms_Driven" required="required" value="{{(request.form['Kms_Driven'])}}"  > 
+            <h3>How much owners previously had the car (0 or 1 or 3) ? </h3> <input id="opc" name="Owner" required="required" value="{{(request.form['Owner'])}}"> 
+            <br>
+            <div id="change" ><h3>What Is the Fuel type?</h3> <select name="Fuel_Type_Petrol" id="fp" required="required">
+                <option value="Petrol" >Petrol</option>
+                <option value="Diesel" >Diesel</option>
+                <option value="CNG" >CNG</option>
+            </select>
+            </div>
+            <div id="dI"><h3>Are you A Dealer or Individual</h3><select name="Seller_Type_Individual" id="ds" required="required" >
+                <option value="Dealer" >Dealer</option>
+                <option value="Individual">Individual</option>
+            </select> </div>
+            <div id="chtm"><h3>Transmission type</h3><select name="Transmission_Manual" id="tm" required="required">
+                <option value="Manual"> Manual Car</option>
+                <option value="Automatic">Automatic Car </option>
+            </select>  </div>
+       
+             <br> <br>  
+        <div id="submit">
+            <button id="sub" type="submit " translate="yes"> Calculate The Selling Price </button>
+        </div> 
+
+        </form>
+
+
+        <div id="res">
+            <br><h3>{{ prediction_text }}<h3>
+        </div>
+    </div>
+
+
+
+
+    <style>
+
+       
+        body {
+            
+            background-image: url('https://cdn.pixabay.com/photo/2016/09/21/04/08/jeju-island-1684033_960_720.jpg');
+            
+            color: #f8c3d5;
+            background-repeat: no-repeat;
+            background-size:cover;
+            text-align: left;
+            padding: 0px;
+        }
+        
+        #tm{
+            font-size: 18px;
+            width: 100px;
+            height: 23px;
+            top: 23px;
+        }
+        
+        #box {
+            border-radius: 60px;
+            border-color: 45px;
+            border-style: solid;
+            font-family: cursive;
+            text-align: center;
+            background-color: rgb(168, 131, 61);
+            font-size: medium;
+            position: absolute;
+            width: 700px;
+            bottom: 12%;
+            height: 850px;
+            right: 30%;
+            padding: 0px;
+            margin: 0px;
+            font-size: 16px;
+        }
+        
+        #fp {
+            width: 130px;
+            height: 40px;
+            text-align:center;
+            border-radius: 14px;
+            font-size: 20px;
+        }
+        
+        #fp:hover {
+            background-color: rgb(109, 145, 243);
+        }
+        
+        #tm {
+            width: 150px;
+            height: 40px;
+            text-align: center;
+            border-radius: 14px;
+            font-size: 18px;
+        }
+        
+        #tm:hover {
+            background-color: rgb(109, 145, 243);
+        }
+        
+        #ds {
+            width: 130px;
+            height: 40px;
+            text-align: center;
+            border-radius: 14px;
+            font-size: 18px;
+        }
+        
+        #ds:hover {
+            background-color: rgb(109, 145, 243);
+        }
+        
+        #sub {
+            width: 200px;
+            height: 50px;
+            text-align: center;
+            border-radius: 14px;
+            font-size: 18px;
+        }
+        
+        #sub:hover {
+            background-color: rgb(3, 59, 36);
+        }
+        
+        #yr {
+            border-radius: 14px;
+            height: 25px;
+            font-size: 20px;
+            text-align: center;
+            
+        }
+        
+        #shp {
+            border-radius: 14px;
+            height: 25px;
+            font-size: 20px;
+            text-align: center;
+        }
+        
+        #kd {
+            border-radius: 14px;
+            height: 25px;
+            font-size: 20px;
+            text-align: center;
+        }
+        
+        #opc {
+            border-radius: 14px;
+            height: 25px;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        #submit {
+            border-radius: 14px;
+            height: 25px;
+            font-size: 20px;
+            text-align: left;
+            padding-left: 12px;
+        }
+        #res {
+            border-radius: 14px;
+            height: 25px;
+            font-size: 20px;
+            text-align: left;
+            padding-left: 20px;
+        }
+        #change {
+            text-align: center;
+            display: inline-block;
+            padding: 25px;
+            padding-left: 12px;
+        }
+
+        #dI {
+            text-align: left;
+            display: inline-block;
+            padding: 25px;
+
+        }
+
+        #chtm {
+            text-align: right;
+            display: inline-block;
+            padding: 25px;
+        }
+        
+    
+    </style>
+</body>
+
+</html>
