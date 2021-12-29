@@ -7,7 +7,7 @@ This project aims to predict the price of a used car by taking the year of purch
 Data from [Source](https://www.kaggle.com/nehalbirla/vehicle-dataset-from-cardekho) (This dataset contains information about used cars.)
 
 
-This image below is an example:
+The image below is an example:
 
 <img src="car.PNG" width="800" height="600">
 
